@@ -1,5 +1,5 @@
 ---
-title: The Vue Point
-subtext: Updates, tips & opinions from the maintainers of Vue.js.
+title: Vince Analytics
+subtext: Beyond Page Views.
 index: true
 ---
