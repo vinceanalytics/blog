@@ -3,19 +3,18 @@ import Date from './Date.vue'
 import Author from './Author.vue'
 import { computed } from 'vue'
 import { useData, useRoute } from 'vitepress'
-import { data as posts } from './posts.data.js'
+import { data as dataPost } from './posts.data.js'
 
 const { frontmatter: data, site } = useData()
 
 const route = useRoute()
 const { base } = site.value;
-
+let prefix = base;
+if (prefix.endsWith('/')) prefix = prefix.slice(0, prefix.length - 1)
+const posts = dataPost.map((value) => ({ ...value, url: prefix + value.url }))
 function findCurrentIndex() {
   return posts.findIndex((p) => {
-    let prefix = base;
-    if (prefix.endsWith('/')) prefix = prefix.slice(0, prefix.length - 1)
-    const postPath = prefix + p.url;
-    return postPath === route.path
+    return p.url === route.path
   })
 }
 
