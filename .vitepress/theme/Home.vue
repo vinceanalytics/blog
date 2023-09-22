@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import Date from './Date.vue'
-import { data } from './posts.data.js'
+import { data as posts } from './posts.data.js'
 import { useData } from 'vitepress'
 
-const { frontmatter, site } = useData()
-const { base } = site.value;
-let prefix = base;
-if (prefix.endsWith('/')) prefix = prefix.slice(0, prefix.length - 1)
-const posts = data.map((value) => ({ ...value, url: prefix + value.url }))
+const { frontmatter } = useData()
 
 </script>
 

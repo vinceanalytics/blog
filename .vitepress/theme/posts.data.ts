@@ -10,8 +10,11 @@ interface Post {
   excerpt: string | undefined
 }
 
+const prefix = "/blog"
+
 declare const data: Post[]
 export { data }
+
 
 export default createContentLoader('posts/*.md', {
   excerpt: true,
@@ -19,7 +22,7 @@ export default createContentLoader('posts/*.md', {
     return raw
       .map(({ url, frontmatter, excerpt }) => ({
         title: frontmatter.title,
-        url,
+        url: prefix + url,
         excerpt,
         date: formatDate(frontmatter.date)
       }))
