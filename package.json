@@ -1,6 +1,6 @@
 {
-  "name": "vue-blog",
-  "version": "1.0.0",
+  "name": "vince-blog",
+  "version": "0.0.43",
   "private": true,
   "type": "module",
   "scripts": {
